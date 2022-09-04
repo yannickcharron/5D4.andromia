@@ -1,0 +1,28 @@
+{
+  "name": "vue-electron-js-template",
+  "version": "0.0.1",
+  "main": "dist/electron/main/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "electron:dev": "vite --config vite.config.electron.js",
+    "electron:build": "vite --config vite.config.electron.js build && electron-builder",
+    "preview": "vite preview --port 4173"
+  },
+  "dependencies": {
+    "pinia": "^2.0.16",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.2"
+  },
+  "env": {
+    "VITE_DEV_SERVER_HOST": "127.0.0.1",
+    "VITE_DEV_SERVER_PORT": 3344
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.1",
+    "electron": "^19.0.9",
+    "electron-builder": "^23.1.0",
+    "vite": "^3.0.1",
+    "vite-plugin-electron": "^0.8.3"
+  }
+}
