@@ -10,18 +10,16 @@
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
+    "bootstrap": "^5.2.0",
     "pinia": "^2.0.16",
     "vue": "^3.2.37",
     "vue-router": "^4.1.2"
-  },
-  "env": {
-    "VITE_DEV_SERVER_HOST": "127.0.0.1",
-    "VITE_DEV_SERVER_PORT": 3344
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.1",
     "electron": "^19.0.9",
     "electron-builder": "^23.1.0",
+    "sass": "^1.54.8",
     "vite": "^3.0.1",
     "vite-plugin-electron": "^0.8.3"
   }

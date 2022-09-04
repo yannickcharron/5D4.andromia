@@ -74,11 +74,8 @@ function useLoading() {
       safeDOM.append(document.body, oDiv);
     },
     removeLoading() {
-      //FIXME: Sans le setTimeout impossible vraiment de le voir
-      setTimeout(() => {
-        safeDOM.remove(document.head, oStyle);
-        safeDOM.remove(document.body, oDiv);
-      }, 2000);
+      safeDOM.remove(document.head, oStyle);
+      safeDOM.remove(document.body, oDiv);
       // safeDOM.remove(document.head, oStyle)
       // safeDOM.remove(document.body, oDiv)
     },

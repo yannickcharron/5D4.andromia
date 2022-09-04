@@ -28,14 +28,13 @@ const preload = join(__dirname, '../preload/index.js')
 const url = `http://${process.env['VITE_DEV_SERVER_HOST']}:${process.env['VITE_DEV_SERVER_PORT']}`
 
 
-//icon: join(ROOT_PATH.public, 'favicon.ico'),
-
 async function createWindow() {
   win = new BrowserWindow({
     title: 'Electron App',
     width: 1560,
     height: 900,
     show: false,
+    icon: join(ROOT_PATH.public, 'favicon-32x32.png'),
     webPreferences: {
       preload,
       nodeIntegration: true,
