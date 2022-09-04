@@ -1,0 +1,74 @@
+<!-- Footer -->
+<footer class="py-3 footer">
+  <div class="container-fluid">
+    <div class="row align-items-center justify-content-lg-between">
+      <div class="mb-4 col-lg-6 mb-lg-0">
+        <div class="text-sm text-center copyright text-muted text-lg-start">© Andromia Science {{ new Date().getFullYear() }}</div>
+      </div>
+      <div class="col-lg-6"></div>
+    </div>
+  </div>
+</footer>
+<!-- ************************************************************************* -->
+<!-- SideBar -->
+<div class="min-height-300 position-absolute w-100 bg-transparent"></div>
+<aside class="my-3 overflow-auto border-0 sidenav navbar navbar-vertical navbar-expand-xs border-radius-xl fixed-start ms-3 bg-default" id="sidenav-main" data-color="dark">
+  <div class="sidenav-header text-center">
+    <i class="top-0 p-3 cursor-pointer fas fa-times text-secondary opacity-5 position-absolute end-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+    <RouterLink class="navbar-brand" to="/">
+      <img src="@/assets/img/andromia-logo.png" class="h-100" alt="main_logo" />
+      <span class="ms-2 font-weight-bold" id="app-title">Andromia</span>
+    </RouterLink>
+  </div>
+  <hr class="mt-0 horizontal dark dark-fix" />
+  <div class="collapse navbar-collapse w-auto h-auto h-100" id="sidenav-collapse-main">
+  </div>
+</aside>
+
+.navbar-vertical {
+    z-index: 1000;
+}
+  
+@font-face {
+    font-family: Boardmarker;
+    src: url('@/assets/fonts/Boardmarker.ttf');
+}
+
+#app-title {
+    font-family: 'Boardmarker', 'SB Heading';
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+
+.dark-fix {
+    color: #111C44;
+}
+<!-- ************************************************************************* -->
+<!-- SideBarItem  -->
+<li class="nav-item">
+    <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">        
+    </div>
+    <span class="nav-link-text ms-1">Lien</span>
+</li>
+<!-- ************************************************************************* -->
+<!-- NavBar -->
+<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl px-0 mx-4 px-0 mx-4" id="navbarBlur" data-scroll="true">
+    <div class="px-3 py-1 container-fluid">
+        <nav aria-label="breadcrumb">
+        <ol class="px-0 pt-1 pb-0 mb-0 bg-transparent breadcrumb me-sm-6 text-white">
+        </ol>
+        <h6 class="mb-0 font-weight-bolder text-white">Title</h6>
+        </nav>
+        <div class="mt-2 collapse navbar-collapse mt-sm-0 me-md-0 me-sm-4 me-sm-4" id="navbar">
+        <ul class="navbar-nav justify-content-end ms-md-auto">
+            <li class="nav-item d-flex align-items-center">
+            <a href="#modLogin" class="px-0 nav-link font-weight-bold text-white" data-bs-toggle="modal" data-bs-target="#modLogin">
+                <i class="fa fa-user me-sm-2" aria-hidden="true"></i>
+                <span class="d-sm-inline d-none">Connexion</span>
+            </a>
+            </li>
+        </ul>
+        </div>
+    </div>
+</nav>
+<!-- ************************************************************************* -->
