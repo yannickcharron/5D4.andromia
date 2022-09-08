@@ -1,12 +1,13 @@
 <template>
-  <MainLayout>
+  <MainLayout title="Planets">
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
           <div class="row">
-            <div class="col-md-2" v-for="(planet, index) of planets">
+            <div class="col-md-2 my-2" v-for="(planet, index) of planets">
                 <div class="card">
                     <h4>{{ planet.name }}</h4>
+                    <img :src="planet.icon" class="img-fluid" />
                 </div>
             </div>
           </div>

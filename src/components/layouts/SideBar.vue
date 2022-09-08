@@ -9,11 +9,25 @@
       </RouterLink>
     </div>
     <hr class="mt-0 horizontal dark dark-fix" />
-    <div class="collapse navbar-collapse w-auto h-auto h-100" id="sidenav-collapse-main"></div>
+    <div class="collapse navbar-collapse w-auto h-auto h-100" id="sidenav-collapse-main">
+      <ul class="navbar-nav">
+        <SideBarItem url="/" text="Home">
+          <template v-slot:icon>
+            <i class="ni ni-diamond text-primary text-sm opacity-10"></i>
+          </template>
+        </SideBarItem>
+        <SideBarItem url="/planets" text="Planets">
+          <template v-slot:icon>
+            <i class="ni ni-world text-primary text-sm opacity-10"></i>
+          </template>
+        </SideBarItem>
+      </ul>
+    </div>
   </aside>
 </template>
 
-<script setup></script>
+<script setup>
+import SideBarItem from './SideBarItem.vue';</script>
 
 <style lang="scss" scoped>
     
