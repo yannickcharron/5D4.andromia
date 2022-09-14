@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 import HomePage from '../views/pages/HomePage.vue'
 import PlanetsPage from '../views/pages/PlanetsPage.vue'
+import SymfonyPage from '../views/pages/SymfonyPage.vue'
 
 const router = createRouter({
   history: import.meta.env.IS_ELECTRON ? createWebHashHistory() : createWebHistory(),
@@ -14,8 +15,14 @@ const router = createRouter({
       path:'/planets',
       name: 'planets',
       component: PlanetsPage
+    },
+    {
+      path:'/symfony',
+      name: 'symfony',
+      component: SymfonyPage
     }
   ]
 })
 
 export default router
+
