@@ -1,5 +1,5 @@
 <template>
-  <MainLayout>
+  <MainLayout title="Home">
     <div class="py-4 container-fluid">
       <h1>Andromia</h1>
       <HelloWorld />

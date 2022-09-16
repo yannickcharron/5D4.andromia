@@ -22,6 +22,8 @@ app.use(createPinia())
 app.use(router)
 app.use(VueAxios, axios)
 
+axios.defaults.withCredentials = true
+
 app.provide('axios', axios)
 
 app.mount('#app').$nextTick(() => {

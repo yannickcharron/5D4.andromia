@@ -42,19 +42,23 @@
 import { inject, onMounted, ref } from 'vue';
 import MainLayout from '../layouts/MainLayout.vue';
 
+const ipcRenderer = window.ipcRenderer;
 const axios = inject('axios');
 const songs = ref([]);
 const info = ref({ email: '', name: '' });
 const infoSession = ref();
 
-onMounted(() => {
+const BASE_URL = 'https://symfony-api.ycharron.techinfo-cstj.ca';
+//const BASE_URL = 'https://127.0.0.1:8000';
+
+onMounted(async () => {
   retrieveSongs();
   btnLoad_Click();
 });
 
 async function retrieveSongs() {
   try {
-    const res = await axios.get('https://localhost:8000/api/songs', { withCredentials: true });
+    const res = await axios.get(`${BASE_URL}/api/songs`);
     if (res.status === 200) {
       songs.value = res.data;
     }
@@ -64,17 +68,18 @@ async function retrieveSongs() {
 }
 async function btnSave_Click() {
   try {
-    const res = await axios.post('https://localhost:8000/api/session', info.value, { withCredentials: true });
+    const res = await axios.post(`${BASE_URL}/api/session`, info.value);
     if (res.status === 200) {
       console.log(res);
       info.value = res.data;
+      const result = await ipcRenderer.invoke('get-cookies')
     }
   } catch (err) {}
 
 }
 async function btnLoad_Click() {
   try {
-    const res = await axios.get('https://localhost:8000/api/session', { withCredentials: true });
+    const res = await axios.get(`${BASE_URL}/api/session`);
     if (res.status === 200) {
       infoSession.value = res.data;
     }
