@@ -30,7 +30,7 @@ onMounted(() => {
 
 async function retrievePlanets() {
   try {
-    const res = await axios.get('https://api.andromia.science/planets');
+    const res = await axios.get('https://api.andromia.science/planets',{ withCredentials: false });
     if(res.status === 200) {
         planets.value = res.data
     }

@@ -1,31 +1,21 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 
-import App from './App.vue'
-import router from './router'
+import App from './App.vue';
+import router from './router';
 
-import './assets/css/nucleo-icons.css'
-import './assets/css/nucleo-svg.css'
+const app = createApp(App);
 
-import './assets/scss/argon-dashboard.scss'
+app.use(createPinia());
+app.use(router);
+app.use(VueAxios, axios);
 
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
+axios.defaults.withCredentials = true;
 
-import './assets/scss/main.scss'
-
-const app = createApp(App)
-
-app.use(createPinia())
-app.use(router)
-app.use(VueAxios, axios)
-
-axios.defaults.withCredentials = true
-
-app.provide('axios', axios)
+app.provide('axios', axios);
 
 app.mount('#app').$nextTick(() => {
-    postMessage({ payload: 'removeLoading' }, '*')
+  postMessage({ payload: 'removeLoading' }, '*');
 });

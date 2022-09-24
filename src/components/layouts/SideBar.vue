@@ -31,6 +31,11 @@
             <i class="ni ni-world text-primary text-sm opacity-10"></i>
           </template>
         </SideBarItem>
+        <SideBarItem url="/control" text="Controles">
+          <template v-slot:icon>
+            <i class="ni ni-world text-primary text-sm opacity-10"></i>
+          </template>
+        </SideBarItem>
       </ul>
     </div>
   </aside>
