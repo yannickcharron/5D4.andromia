@@ -16,18 +16,21 @@
           <RouterLink :to="{ name: 'router', params: { userData: { age: 37, name: 'Patrick' } } }">Page suivante</RouterLink>
         </div>
         <div class="row">
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#monModal">
-            Launch demo modal
-          </button>
+         {{ fromSession }}
+        </div>
+
+        <div class="row">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#monModal">Launch demo modal</button>
         </div>
       </div>
     </div>
     <ModalComponent id="monModal" title="Test Modal">
       <template v-slot:body>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi optio porro quod adipisci maxime ipsa at dolorum eius doloremque soluta, necessitatibus sunt officiis? Quisquam quaerat inventore reiciendis adipisci sit asperiores?</p>
+        <input type="text" v-model="search.text" @keyup="onSearchKeyUp" />
+        <p>{{ fromSession }}</p>
       </template>
       <template v-slot:footer>
-        <button type="button" class="btn btn-primary" @click="btnSave">Save</button>
+        <button type="button" class="btn btn-primary" @click="btnSaveSession">Save Session</button>
       </template>
     </ModalComponent>
   </MainLayout>
@@ -35,13 +38,23 @@
 
 <script setup>
 import { useRouter } from 'vue-router';
-import { ref } from 'vue';
+import { inject, onMounted, ref } from 'vue';
 
 import MainLayout from '../layouts/MainLayout.vue';
 import ModalComponent from '../../components/ModalComponent.vue';
 
+const axios = inject('axios');
+
 const user = ref({});
+const search = ref({ text: '' });
 const router = useRouter();
+const fromSession = ref();
+
+const BASE_URL = 'https://127.0.0.1:8000';
+
+onMounted(() => {
+  retrieveDataFromSession();
+})
 
 //https://stackoverflow.com/questions/50506470/how-to-pass-an-object-as-props-with-vue-router
 function btnAction() {
@@ -55,6 +68,32 @@ function btnMove() {
 
 function btnSave() {
   console.log('Test');
+}
+
+function onSearchKeyUp() {
+  console.log(search.value);
+}
+
+async function btnSaveSession() {
+  console.log('Test');
+  try {
+    const res = await axios.post(`${BASE_URL}/api/sessionV2`, search.value);
+    console.log(res);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function retrieveDataFromSession() {
+  try {
+    const res = await axios.get(`${BASE_URL}/api/sessionV2`);
+    console.log(res);
+    if (res.status === 200) {
+      fromSession.value = res.data;
+    }
+  } catch (err) {
+    console.log(err);
+  }
 }
 </script>
 

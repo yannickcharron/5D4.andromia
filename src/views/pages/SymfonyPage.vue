@@ -69,8 +69,8 @@ async function retrieveSongs() {
 async function btnSave_Click() {
   try {
     const res = await axios.post(`${BASE_URL}/api/session`, info.value);
+    console.log(res);
     if (res.status === 200) {
-      console.log(res);
       info.value = res.data;
       const result = await ipcRenderer.invoke('get-cookies')
     }
